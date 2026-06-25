@@ -101,9 +101,20 @@ document.querySelectorAll("button").forEach(function(btn) {
 const main = document.querySelector(".main");
 const darkness = document.getElementById("darkness");
 const endOfBlocks = document.getElementById("end-of-blocks");
+const cards = document.querySelectorAll(".card");
 
 main.addEventListener("scroll", function() {
     let rect = endOfBlocks.getBoundingClientRect();
+    
+    // JS Parallax for cards
+    cards.forEach((card, index) => {
+        let speed = 0;
+        if (index % 3 === 1) speed = 0.15;  // moves down a bit
+        if (index % 3 === 2) speed = -0.15; // moves up a bit
+        
+        let yPos = main.scrollTop * speed;
+        card.style.transform = `translateY(${yPos}px)`;
+    });
     let distance = window.innerHeight - rect.top;
     
     if (distance > 0) {

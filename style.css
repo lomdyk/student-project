@@ -87,12 +87,8 @@ body {
     row-gap: 300px;
     column-gap: 16px;
     align-content: start;
-    
-    /* 3D Parallax setup */
     overflow-x: hidden;
     overflow-y: auto;
-    perspective: 2px;
-    transform-style: preserve-3d;
 }
 
 /* ── Typography ── */
@@ -129,23 +125,8 @@ p {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    transform-origin: center center;
-}
-
-/* ── 3D Parallax Effect ── */
-.card:nth-child(3n+1) {
-    /* Normal speed */
-    transform: translateZ(0px) scale(1);
-}
-
-.card:nth-child(3n+2) {
-    /* Moves slower, pushed back in 3D space */
-    transform: translateZ(-2px) scale(2);
-}
-
-.card:nth-child(3n+3) {
-    /* Moves faster, pulled forward in 3D space */
-    transform: translateZ(1px) scale(0.5);
+    /* Parallax transition handled by JS */
+    transition: transform 0.1s linear;
 }
 
 /* ── Counter ── */
