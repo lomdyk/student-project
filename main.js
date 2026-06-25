@@ -106,11 +106,10 @@ const cards = document.querySelectorAll(".card");
 main.addEventListener("scroll", function() {
     let rect = endOfBlocks.getBoundingClientRect();
     
-    // JS Parallax for cards
     cards.forEach((card, index) => {
         let speed = 0;
-        if (index % 3 === 1) speed = 0.15;  // moves down a bit
-        if (index % 3 === 2) speed = -0.15; // moves up a bit
+        if (index % 3 === 1) speed = 0.15;
+        if (index % 3 === 2) speed = -0.15;
         
         let yPos = main.scrollTop * speed;
         card.style.transform = `translateY(${yPos}px)`;
@@ -125,12 +124,10 @@ main.addEventListener("scroll", function() {
         darkness.style.opacity = "0";
     }
     
-    // Video Scrubbing
     const adVideo = document.getElementById("ad-video");
     if (adVideo && !isNaN(adVideo.duration)) {
         let maxScroll = main.scrollHeight - main.clientHeight;
         let scrollFraction = main.scrollTop / maxScroll;
-        // Clamp fraction to [0, 1]
         if (scrollFraction < 0) scrollFraction = 0;
         if (scrollFraction > 1) scrollFraction = 1;
         
@@ -138,13 +135,11 @@ main.addEventListener("scroll", function() {
     }
 });
 
-// Close Ad Overlay
 const adOverlay = document.getElementById("ad-overlay");
 const btnAdClose = document.getElementById("btn-ad-close");
 
 if (btnAdClose && adOverlay) {
     btnAdClose.addEventListener("click", function() {
-        // 1. Crumble the site
         const elementsToCrumble = document.querySelectorAll(".card, .sidebar, .top-header");
         elementsToCrumble.forEach(el => {
             let randomRot = (Math.random() - 0.5) * 180;
