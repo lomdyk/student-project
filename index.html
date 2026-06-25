@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="darkness" style="position: fixed; inset: 0; background: black; opacity: 0; pointer-events: none; z-index: 9999;"></div>
+
+    <header class="top-header">
+        <h1>Student Project</h1>
+        <p>HTML + CSS + a little JS</p>
+    </header>
+
+    <div class="content-area">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Todo List</h2>
+        </div>
+        <ul id="list">
+            <li><input type="checkbox"> Buy milk</li>
+            <li><input type="checkbox"> Walk the dog</li>
+            <li><input type="checkbox"> Learn JavaScript</li>
+            <li><input type="checkbox"> Clean the house</li>
+            <li><input type="checkbox"> Read a book</li>
+            <li><input type="checkbox"> Go for a run</li>
+            <li><input type="checkbox"> Call mom</li>
+            <li><input type="checkbox"> Fix the bug</li>
+        </ul>
+        <div class="sidebar-input">
+            <input type="text" id="input" placeholder="New item">
+            <button id="btn">Add</button>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <section class="card">
+            <h3>Counter</h3>
+            <p id="counter">0</p>
+            <div class="row">
+                <button id="btn-minus">-1</button>
+                <button id="btn-plus">+1</button>
+            </div>
+            <label>
+                <input type="checkbox" id="chk-stop"> Stop at 0
+            </label>
+        </section>
+
+        <section class="card">
+            <h3>Gallery</h3>
+            <div class="gallery">
+               
+                <picture>
+                    <source media="(max-width: 520px)"  srcset="https://picsum.photos/seed/nature1/400/300">
+                    <source media="(max-width: 860px)"  srcset="https://picsum.photos/seed/city1/400/300">
+                    <img src="https://picsum.photos/seed/tech1/400/300" alt="Gallery image 1">
+                </picture>
+
+                <picture>
+                    <source media="(max-width: 520px)"  srcset="https://picsum.photos/seed/nature2/400/300">
+                    <source media="(max-width: 860px)"  srcset="https://picsum.photos/seed/city2/400/300">
+                    <img src="https://picsum.photos/seed/tech2/400/300" alt="Gallery image 2">
+                </picture>
+
+                <picture>
+                    <source media="(max-width: 520px)"  srcset="https://picsum.photos/seed/nature3/400/300">
+                    <source media="(max-width: 860px)"  srcset="https://picsum.photos/seed/city3/400/300">
+                    <img src="https://picsum.photos/seed/tech3/400/300" alt="Gallery image 3">
+                </picture>
+
+                <picture>
+                    <source media="(max-width: 520px)"  srcset="https://picsum.photos/seed/nature4/400/300">
+                    <source media="(max-width: 860px)"  srcset="https://picsum.photos/seed/city4/400/300">
+                    <img src="https://picsum.photos/seed/tech4/400/300" alt="Gallery image 4">
+                </picture>
+
+                <picture>
+                    <source media="(max-width: 520px)"  srcset="https://picsum.photos/seed/nature5/400/300">
+                    <source media="(max-width: 860px)"  srcset="https://picsum.photos/seed/city5/400/300">
+                    <img src="https://picsum.photos/seed/tech5/400/300" alt="Gallery image 5">
+                </picture>
+
+                <picture>
+                    <source media="(max-width: 520px)"  srcset="https://picsum.photos/seed/nature6/400/300">
+                    <source media="(max-width: 860px)"  srcset="https://picsum.photos/seed/city6/400/300">
+                    <img src="https://picsum.photos/seed/tech6/400/300" alt="Gallery image 6">
+                </picture>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Calculator</h3>
+            <div class="row">
+                <input type="number" id="num1" placeholder="Number 1">
+                <input type="number" id="num2" placeholder="Number 2">
+            </div>
+            <div class="row">
+                <button id="add">+</button>
+                <button id="sub">-</button>
+                <button id="mul">×</button>
+                <button id="div">÷</button>
+            </div>
+            <p id="result">Result: 0</p>
+        </section>
+
+        <section class="card">
+            <h3>Video Player</h3>
+            <video id="my-video" style="width: 100%; border-radius: 12px;" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+            <div class="row" style="align-items: center; gap: 16px; margin-top: 8px;">
+                <button id="btn-play-stop" style="min-width: 100px;">Play</button>
+                <label style="flex: 1; margin: 0;">
+                    Volume
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1" style="flex: 1;">
+                </label>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Contact</h3>
+            <div class="col">
+                <input type="text" placeholder="Your name">
+                <input type="email" placeholder="Your email">
+                <textarea placeholder="Message"></textarea>
+                <button>Send</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Extra Card 1</h3>
+            <div class="col">
+                <p>fwfwefwefefewfewfewfefewfewfew</p>
+                <button>Action</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Extra Card 2</h3>
+            <div class="col">
+                <p>fwefwfwefewf flfefewow nfwfweicely.</p>
+                <button>Secondary Action</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Extra Card 3</h3>
+            <div class="col">
+                <p>fewfwfewfewfewfewfef.</p>
+                <button>Click me</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Extra Card 4</h3>
+            <div class="col">
+                <p>Yркцререкрекререкркеgergeg.</p>
+                <button>Finish</button>
+            </div>
+        </section>
+
+        <div id="end-of-blocks"></div>
+        <div style="height: 5000px; padding-top: 600px; display: flex; justify-content: center; align-items: flex-start;">
+            <h1 id="color-text" style="font-size: 8rem; transition: color 0.3s ease; color: #555;">COLOR</h1>
+        </div>
+    </main>
+    </div><!-- /.content-area -->
+
+    <!-- Ad Overlay -->
+    <div class="ad-overlay" id="ad-overlay">
+        <div class="ad-header">
+            <span class="ad-label">Advertisement</span>
+            <button class="ad-close" id="btn-ad-close">×</button>
+        </div>
+        <video id="ad-video" muted style="width: 100%; border-radius: 8px;" src="output.mp4"></video>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

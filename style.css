@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --bg: #0f0d1a;
+    --surface: #1a1730;
+    --text: #e8e6f0;
+    --text-soft: #9995b0;
+    --primary: #6750a4;
+    --on-primary: #ffffff;
+    --outline: #79747e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ── */
+.top-header {
+    padding: 20px 32px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* ── Content area: sidebar + main side by side ── */
+.content-area {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: var(--surface);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+.sidebar-header h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.sidebar-input {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.sidebar-input input {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar-input button {
+    padding: 10px 16px;
+    white-space: nowrap;
+}
+
+/* ── Main ── */
+.main {
+    flex: 1;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    row-gap: 300px;
+    column-gap: 16px;
+    align-content: start;
+    
+    /* 3D Parallax setup */
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 2px;
+    transform-style: preserve-3d;
+}
+
+/* ── Typography ── */
+h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+h2 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-soft);
+}
+
+h3 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+p {
+    color: var(--text-soft);
+    font-size: 0.875rem;
+}
+
+/* ── Card ── */
+.card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform-origin: center center;
+}
+
+/* ── 3D Parallax Effect ── */
+.card:nth-child(3n+1) {
+    /* Normal speed */
+    transform: translateZ(0px) scale(1);
+}
+
+.card:nth-child(3n+2) {
+    /* Moves slower, pushed back in 3D space */
+    transform: translateZ(-2px) scale(2);
+}
+
+.card:nth-child(3n+3) {
+    /* Moves faster, pulled forward in 3D space */
+    transform: translateZ(1px) scale(0.5);
+}
+
+/* ── Counter ── */
+#counter {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--primary);
+    text-align: center;
+}
+
+/* ── Calculator result ── */
+#result {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ── Todo list ── */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+li {
+    padding: 10px 12px;
+    color: var(--text);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+    transition: background 0.15s ease;
+}
+
+li:hover {
+    background: rgba(103, 80, 164, 0.1);
+}
+
+li input[type="checkbox"] {
+    accent-color: var(--primary);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* ── Gallery ── */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ── Layout helpers ── */
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+}
+
+/* ── Inputs ── */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea {
+    padding: 12px 14px;
+    flex: 1;
+    min-width: 0;
+    border-radius: 12px;
+    background: rgba(103, 80, 164, 0.07);
+    color: var(--text);
+    border: 1px solid transparent;
+    outline: none;
+    font-size: 0.9375rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary);
+}
+
+input[type="range"] {
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+button {
+    padding: 11px 22px;
+    cursor: pointer;
+    border-radius: 24px;
+    background: var(--primary);
+    color: var(--on-primary);
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'IBM Plex Sans', sans-serif;
+    letter-spacing: 0.01em;
+    transition:
+        border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background    0.2s ease,
+        transform     0.15s ease;
+}
+
+button:hover {
+    background: #7f67be;
+    border-radius: 8px;
+}
+
+button:active {
+    border-radius: 10px;
+    transform: scale(0.94);
+}
+
+label {
+    color: var(--text-soft);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (max-width: 860px) {
+    .content-area {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .top-header {
+        padding: 16px;
+    }
+
+    .main {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+.ad-overlay {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 280px;
+    background: var(--surface);
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid var(--primary);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: opacity 0.9s ease, transform 0.8s ease;
+}
+
+.ad-overlay.hidden {
+    opacity: 0;
+    transform: translateY(1000px);
+    transform: translateX(-1000px);
+    pointer-events: grabbed;
+}
+
+.ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ad-label {
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.ad-close {
+    background: transparent;
+    border: none;
+    color: var(--text-soft);
+    font-size: 1.2rem;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.ad-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.ad-close:active {
+    transform: scale(0.9);
+}
+
+/* ── Easter Egg ── */
+@keyframes crumble {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(150vh) rotate(var(--fall-rotation, 45deg));
+        opacity: 0;
+    }
+}
+
+.crumble-element {
+    animation: crumble 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+    pointer-events: none;
+}
